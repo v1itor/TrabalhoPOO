@@ -4,7 +4,10 @@ public class ParametrizacaoSistema {
 	private String chave;
 	private String valor;
 	
-	public static String DIAS_IDEAIS_ESTOQUE = "diasIdeaisEstoque";
+	public final static String DIAS_IDEAIS_ESTOQUE = "diasIdeaisEstoque";
+	public final static String MARGEM_DE_LUCRO_IDEAL = "margemDeLucroIdeal";
+	public final static String CUSTO_ADMINISTRATIVO_ESPERADO = "custoAdministrativoEsperado";
+	
 	
 	ParametrizacaoSistema(String chave, String valor) {
 		this.chave = chave;
