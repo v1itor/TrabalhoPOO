@@ -2,21 +2,17 @@ package gestaocomercial.application;
 
 import javax.swing.JOptionPane;
 
-public class MenuPrincipal {
-	public static void exibirMenuPrincipal() {
+public class MenuCustoAdministrativo {
+	public static void exibirMenuCustoAdministrativo() {
 		int opcao = 0;
-		
 		do {
 			opcao = Integer.parseInt(JOptionPane.showInputDialog(""
-					+ "----------- MENU -----------\n"
+					+ "----------- CUSTO ADMINISTRATIVO -----------\n"
 					+ "Insira a opção que deseja realizar:\n"
-					+ "1 - Acessar menu de vendas\n"
-					+ "2 - Acessar menu de compras\n"
-					+ "3 - Acessar menu de estoque\n"
-					+ "4 - Acessar menu de compradores"
-					+ "5 - Emitir relatórios"
-					+ "6 - Cálculo de custo administrativo"
-					+ "7 - Sair"));
+					+ "1 - Visualizar custo administrativo atual"
+					+ "2 - Registrar novo custo"
+					+ "3 - Remover registro"
+					+ "4 - Voltar"));
 			
 			switch(opcao) {
 			case 1:
