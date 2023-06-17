@@ -1,11 +1,12 @@
 package gestaocomercial.application;
 
+import java.util.Date;
+
 import javax.swing.JOptionPane;
 
 import gestaocomercial.dto.BancoDeDados;
 import gestaocomercial.model.Comprador;
 import gestaocomercial.model.Endereco;
-import java.util.Date;
 
 
 public class MenuComprador {
