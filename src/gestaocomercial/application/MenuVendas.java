@@ -18,7 +18,7 @@ public class MenuVendas {
 
 		switch(opcao) {
 		case 1:
-			Comprador(endereci nomne );
+
 			break;
 		case 2:
 			exibirMenuCompras();

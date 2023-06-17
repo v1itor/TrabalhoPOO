@@ -5,11 +5,44 @@ import java.util.List;
 
 public class Comprador {
 	private String nome;
+	private String email;
+	private Endereco endereco;
+	private String telefone;
+	private String cpfCnpj;
+	private String Obs;
 	private Date dataCriacao;
 	private List<Pedido> historicoDePedidos;
 	
-	
-
+	public String getEmail() {
+		return email;
+	}
+	public void setEmail(String email) {
+		this.email = email;
+	}
+	public Endereco getEndereco() {
+		return endereco;
+	}
+	public void setEndereco(Endereco endereco) {
+		this.endereco = endereco;
+	}
+	public String getTelefone() {
+		return telefone;
+	}
+	public void setTelefone(String telefone) {
+		this.telefone = telefone;
+	}
+	public String getCpfCnpj() {
+		return cpfCnpj;
+	}
+	public void setCpfCnpj(String cpfCnpj) {
+		this.cpfCnpj = cpfCnpj;
+	}
+	public String getObs() {
+		return Obs;
+	}
+	public void setObs(String obs) {
+		Obs = obs;
+	}
 	public String getNome() {
 		return nome;
 	}
