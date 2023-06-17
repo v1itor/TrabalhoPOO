@@ -13,14 +13,13 @@ public class MenuComprador {
 	public static void exibirMenuCompradores(BancoDeDados bancoDeDados) {
 		int opcao = 0;
 
-		do {
+
 			opcao = Integer.parseInt(JOptionPane.showInputDialog(""
 					+ "----------- MENU COMPRADOR -----------\n"
 					+ "Insira a opção que deseja realizar:\n"
 					+ "1 - Cadastrar novo comprador\n"
 					+ "2 - Consultar um comprador\n"
-					+ "3 - Alterar cadastro\n"
-					+ "4 - Voltar\n"));
+					+ "3 - Voltar\n"));
 
 			switch(opcao) {
 			case 1:
@@ -45,10 +44,6 @@ public class MenuComprador {
 				JOptionPane.showMessageDialog(null, bancoDeDados.getListaDeCompradores().mostrarListaDeCompradores());
 				break;
 			case 3:
-				JOptionPane.showMessageDialog(null, "Função não disponivel no momento");
-				// TODO = alterarComprador();
-				break;
-			case 4:
 				MenuPrincipal.exibirMenuPrincipal();
 				break;
 			default:
@@ -57,6 +52,6 @@ public class MenuComprador {
 				break;
 			}
 
-		} while(opcao != 4);
+
 	}
 }
