@@ -6,6 +6,7 @@ import gestaocomercial.dto.BancoDeDados;
 import gestaocomercial.dto.ProdutoVendido;
 import gestaocomercial.model.Comprador;
 import gestaocomercial.model.Endereco;
+import gestaocomercial.model.ParametrizacaoSistema;
 import gestaocomercial.model.Pedido;
 import gestaocomercial.model.Produto;
 
@@ -15,7 +16,7 @@ public class MenuPrincipal {
 
 	public static void exibirMenuPrincipal() {
 		BancoDeDados bancoDeDados = new BancoDeDados();
-
+		inicializaValores(bancoDeDados);
 		int opcao = 0;
 
 		do {
@@ -56,7 +57,7 @@ public class MenuPrincipal {
 		} while(opcao != 6);
 	}
 
-	private void inicializaValores(BancoDeDados bancoDeDados) {
+	private static void inicializaValores(BancoDeDados bancoDeDados) {
 		bancoDeDados.getCustoAdministrativo().adicionarCustoAdministrativo(10f);
 
 		Produto rtx4060 = new Produto("RTX4060,", 2400f, "Placa de vídeo");
@@ -74,5 +75,7 @@ public class MenuPrincipal {
 		bancoDeDados.getHistoricoDePedidos().addPedido(new Pedido(comprador, new ProdutoVendido(rtx4060)));
 		bancoDeDados.getHistoricoDePedidos().addPedido(new Pedido(comprador, new ProdutoVendido(rtx3060)));
 		bancoDeDados.getHistoricoDePedidos().addPedido(new Pedido(comprador, new ProdutoVendido(rtx2070)));
+
+		bancoDeDados.getParametrizacoesDoSistema().getListaDeParametrizacoes().add(new ParametrizacaoSistema(ParametrizacaoSistema.DIAS_IDEAIS_ESTOQUE, "5"));
 	}
 }

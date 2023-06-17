@@ -6,6 +6,9 @@ public class Endereco {
 	private String estado;
 	private String codigoPostal;
 
+	public Endereco() {
+	}
+
 	public Endereco(String rua, String cidade, String estado, String codigoPostal) {
 		super();
 		this.rua = rua;

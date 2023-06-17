@@ -13,6 +13,9 @@ public class Comprador {
 	private Date dataCriacao;
 	private List<Pedido> historicoDePedidos;
 
+	public Comprador() {
+	}
+
 	public Comprador(String nome, String email, Endereco endereco, String telefone, String cpfCnpj, String obs) {
 		super();
 		this.nome = nome;
