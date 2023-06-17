@@ -3,6 +3,7 @@ package gestaocomercial.application;
 import javax.swing.JOptionPane;
 
 import gestaocomercial.dto.BancoDeDados;
+import gestaocomercial.model.Comprador;
 
 public class MenuComprador {
 	public static void exibirMenuCompradores(BancoDeDados bancoDeDados) {
@@ -19,7 +20,8 @@ public class MenuComprador {
 
 			switch(opcao) {
 			case 1:
-				Comprador();
+				Comprador comprador = new Comprador();
+				comprador.setNome(JOptionPane.showInputDialog("Insira o nome do comprador:"));
 				break;
 			case 2:
 				exibirComprador();
