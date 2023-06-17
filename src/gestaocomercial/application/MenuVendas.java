@@ -9,7 +9,12 @@ public class MenuVendas {
 		int opcao = 0;
 
 		do {
-			opcao = Integer.parseInt(JOptionPane.showInputDialog("" + "----------- MENU COMPRADOR -----------\n" + "Insira a opção que deseja realizar:\n" + "1 - Cadastrar novo comprador\n" + "2 - \n" + "6 - Sair"));
+			opcao = Integer.parseInt(JOptionPane.showInputDialog(""
+			+ "----------- MENU COMPRADOR -----------\n"
+			+ "Insira a opção que deseja realizar:\n"
+			+ "1 - Cadastrar novo comprador\n"
+			+ "2 - \n"
+			+ "6 - Sair"));
 
 			switch (opcao) {
 			case 1:

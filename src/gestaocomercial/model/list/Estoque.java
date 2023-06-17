@@ -1,17 +1,18 @@
 package gestaocomercial.model.list;
 
+import java.util.ArrayList;
 import java.util.List;
 
-import gestaocomercial.model.Produto;
+import gestaocomercial.dto.ProdutoEmEstoque;
 
 public class Estoque {
-	List<Produto> listaDeprodutos;
+	private List<ProdutoEmEstoque> listaDeProdutosEmEstoque = new ArrayList<ProdutoEmEstoque>();
 
-	public List<Produto> getListaDeprodutos() {
-		return listaDeprodutos;
+	public List<ProdutoEmEstoque> getListaDeProdutosEmEstoque() {
+		return listaDeProdutosEmEstoque;
 	}
 
-	public void setListaDeprodutos(List<Produto> listaDeprodutos) {
-		this.listaDeprodutos = listaDeprodutos;
+	public void setListaDeProdutosEmEstoque(List<ProdutoEmEstoque> listaDeProdutosEmEstoque) {
+		this.listaDeProdutosEmEstoque = listaDeProdutosEmEstoque;
 	}
 }

@@ -20,16 +20,22 @@ public class MenuPrincipal {
 		int opcao = 0;
 
 		do {
-			opcao = Integer.parseInt(JOptionPane.showInputDialog(""
-					+ "----------- MENU -----------\n"
-					+ "Insira a opção que deseja realizar:\n"
-					+ "1 - Acessar menu de vendas\n"
-					+ "2 - Acessar menu de compradores\n"
-					+ "3 - Acessar menu de estoque\n"
-					+ "4 - Emitir relatórios"
-					+ "5 - Cálculo de custo administrativo"
-					+ "6 - Sair"));
-
+			try {
+				opcao = Integer.parseInt(JOptionPane.showInputDialog(""
+						+ "----------- MENU -----------\n"
+						+ "Insira a opção que deseja realizar:\n"
+						+ "1 - Acessar menu de vendas\n"
+						+ "2 - Acessar menu de compras\n"
+						+ "3 - Acessar menu de estoque\n"
+						+ "4 - Acessar menu de compradores\n"
+						+ "5 - Emitir relatórios\n"
+						+ "6 - Cálculo de custo administrativo\n"
+						+ "7 - Sair"));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente");
+				MenuPrincipal.exibirMenuPrincipal();
+				break;
+			}
 			switch(opcao) {
 			case 1:
 				MenuVendas.exibirMenuVendas(bancoDeDados);

@@ -16,4 +16,12 @@ public class ParametrizacoesDoSistema {
 		this.listaDeParametrizacoes = listaDeParametrizacoes;
 	}
 
+	public String getValorPelaChave (String chave) {
+		for (ParametrizacaoSistema parametrizacaoSistema : list) {
+			if (parametrizacaoSistema.getChave().equals(chave)) {
+				return parametrizacaoSistema.getValor();
+			}
+		}
+		return null;
+	}
 }
