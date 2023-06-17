@@ -11,31 +11,28 @@ public class MenuComprador {
 					+ "----------- MENU COMPRADOR -----------\n"
 					+ "Insira a opção que deseja realizar:\n"
 					+ "1 - Cadastrar novo comprador\n"
-					+ "2 - \n"
-					+ "6 - Sair"));
+					+ "2 - Consultar um comprador"
+					+ "3 - Alterar cadastro"
+					+ "4 - Voltar"));
 			
 			switch(opcao) {
 			case 1:
-				Comprador(endereci nomne );
+				Comprador();
 				break;
 			case 2:
-				exibirMenuCompras();
+				exibirComprador();
 				break;
 			case 3:
-				exibirMenuEstoque();
+				alterarComprador();
 				break;
 			case 4:
-				exibirMenuCompradores();
+				MenuPrincipal.exibirMenuPrincipal();
+				JOptionPane.showMessageDialog(null, "Voltando para o menu principal...");
 				break;
-			case 5:
-				exibirMenuRelatorios();
-				break;
-			case 6:
-				JOptionPane.showMessageDialog(null, "Goodbye ;)");
 				break;
 			default:
-				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente");
-				break;
+				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente\n");
+				exibirMenuPrincipal();
 			}
 			
 		} while(opcao != 6);
