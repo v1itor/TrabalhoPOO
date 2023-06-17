@@ -2,10 +2,12 @@ package gestaocomercial.application;
 
 import javax.swing.JOptionPane;
 
+import gestaocomercial.dto.BancoDeDados;
+
 public class MenuVendas {
-	public static void exibirMenuComprador() {
+	public static void exibirMenuVendas(BancoDeDados bancoDeDados) {
 	int opcao = 0;
-	
+
 	do {
 		opcao = Integer.parseInt(JOptionPane.showInputDialog(""
 				+ "----------- MENU COMPRADOR -----------\n"
@@ -13,7 +15,7 @@ public class MenuVendas {
 				+ "1 - Cadastrar novo comprador\n"
 				+ "2 - \n"
 				+ "6 - Sair"));
-		
+
 		switch(opcao) {
 		case 1:
 			Comprador(endereci nomne );
@@ -37,7 +39,7 @@ public class MenuVendas {
 			JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente");
 			break;
 		}
-		
+
 	} while(opcao != 6);
 }
 }

@@ -2,12 +2,14 @@ package gestaocomercial.application;
 
 import javax.swing.JOptionPane;
 
-import gestaocomercial.model.list.CompradoresAtuais;
+import gestaocomercial.dto.BancoDeDados;
 
 public class MenuPrincipal {
 
-	private CompradoresAtuais compradoresAtuais = new CompradoresAtuais();
+	BancoDeDados bancoDeDados = new BancoDeDados();
+
 	public static void exibirMenuPrincipal() {
+		BancoDeDados bancoDeDados = new BancoDeDados();
 		int opcao = 0;
 
 		do {
@@ -24,22 +26,22 @@ public class MenuPrincipal {
 
 			switch(opcao) {
 			case 1:
-				exibirMenuVendas();
+				MenuVendas.exibirMenuVendas(bancoDeDados);
 				break;
 			case 2:
-				exibirMenuCompras();
+				MenuCompras.exibirMenuCompras(bancoDeDados);
 				break;
 			case 3:
-				exibirMenuEstoque();
+				MenuEstoque.exibirMenuEstoque(bancoDeDados);
 				break;
 			case 4:
-				exibirMenuCompradores();
+				MenuComprador.exibirMenuCompradores(bancoDeDados);
 				break;
 			case 5:
-				exibirMenuRelatorios();
+				MenuRelatorios.exibirMenuRelatorios(bancoDeDados);
 				break;
 			case 6:
-				exibirMenuCustoAdministrativo();
+				MenuCustoAdministrativo.exibirMenuCustoAdministrativo(bancoDeDados);
 				break;
 			case 7:
 				JOptionPane.showMessageDialog(null, "Goodbye ;)");
