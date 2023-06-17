@@ -3,7 +3,7 @@ package gestaocomercial.application;
 import javax.swing.JOptionPane;
 
 import gestaocomercial.dto.BancoDeDados;
-import gestaocomercial.model.CustoAdministrativo;
+import gestaocomercial.model.ParametrizacaoSistema;
 
 public class MenuCustoAdministrativo {
 	public static void exibirMenuCustoAdministrativo(BancoDeDados bancoDeDados) {
@@ -13,27 +13,26 @@ public class MenuCustoAdministrativo {
 			opcao = Integer.parseInt(JOptionPane.showInputDialog(""
 					+ "----------- CUSTO ADMINISTRATIVO -----------\n"
 					+ "Insira a opção que deseja realizar:\n"
-					+ "1 - Visualizar custo administrativo atual"
-					+ "2 - Registrar novo custo"
+					+ "1 - Visualizar custo administrativo atual\n"
+					+ "2 - Registrar novo custo\n"
 					+ "3 - Voltar"));
 
 			switch(opcao) {
 			case 1:
-				CustoAdministrativo.visualizarCustoAdministrativo();
+				bancoDeDados.getCustoAdministrativo().visualizarCustoAdministrativo(bancoDeDados);
 				break;
 			case 2:
-				exibirMenuCompras();
+				Float custo = Float.valueOf(JOptionPane.showInputDialog("Insira o valor do novo custo:"));
+				bancoDeDados.getCustoAdministrativo().adicionarCustoAdministrativo(custo);
 				break;
 			case 3:
-				exibirMenuEstoque();
+				MenuPrincipal.exibirMenuPrincipal();
 				break;
-			case 4:
-				exibirMenuCompradores();
 			default:
 				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente");
 				break;
 			}
 
-		} while(opcao != 4);
+		} while(opcao != 3);
 	}
 }

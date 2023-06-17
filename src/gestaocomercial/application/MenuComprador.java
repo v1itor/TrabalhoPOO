@@ -53,6 +53,7 @@ public class MenuComprador {
 			default:
 				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente\n");
 				MenuPrincipal.exibirMenuPrincipal();
+				break;
 			}
 
 		} while(opcao != 4);
