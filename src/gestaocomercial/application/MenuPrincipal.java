@@ -2,10 +2,14 @@ package gestaocomercial.application;
 
 import javax.swing.JOptionPane;
 
+import gestaocomercial.model.list.CompradoresAtuais;
+
 public class MenuPrincipal {
+
+	private CompradoresAtuais compradoresAtuais = new CompradoresAtuais();
 	public static void exibirMenuPrincipal() {
 		int opcao = 0;
-		
+
 		do {
 			opcao = Integer.parseInt(JOptionPane.showInputDialog(""
 					+ "----------- MENU -----------\n"
@@ -17,7 +21,7 @@ public class MenuPrincipal {
 					+ "5 - Emitir relatórios"
 					+ "6 - Cálculo de custo administrativo"
 					+ "7 - Sair"));
-			
+
 			switch(opcao) {
 			case 1:
 				exibirMenuVendas();
@@ -44,7 +48,7 @@ public class MenuPrincipal {
 				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente");
 				break;
 			}
-			
+
 		} while(opcao != 6);
 	}
 }
