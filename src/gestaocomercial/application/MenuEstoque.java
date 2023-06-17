@@ -13,7 +13,7 @@ public class MenuEstoque {
 
 			switch (opcao) {
 			case 1:
-
+				bancoDeDados.getEstoque().getListaDeprodutos()
 				break;
 			case 2:
 				exibirMenuCompras();
