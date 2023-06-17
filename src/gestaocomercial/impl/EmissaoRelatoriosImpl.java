@@ -1,14 +1,13 @@
 package gestaocomercial.impl;
 
 import java.util.Date;
-import java.util.HashMap;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
-import gestaocomercial.model.ParametrizacaoSistema;
 
 import javax.swing.JOptionPane;
 
 import gestaocomercial.dto.ProdutoEmEstoque;
+import gestaocomercial.model.ParametrizacaoSistema;
 
 public class EmissaoRelatoriosImpl {
 	
@@ -39,6 +38,4 @@ public class EmissaoRelatoriosImpl {
 		}
 		JOptionPane.showMessageDialog(null, textoASerExibido);
 	}
-	
-	public void 
 }
