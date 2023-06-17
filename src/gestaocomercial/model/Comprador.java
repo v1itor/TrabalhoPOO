@@ -7,6 +7,8 @@ public class Comprador {
 	private String nome;
 	private Date dataCriacao;
 	private List<Pedido> historicoDePedidos;
+	
+	
 
 	public String getNome() {
 		return nome;

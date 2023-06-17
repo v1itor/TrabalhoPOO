@@ -1,10 +1,20 @@
 package gestaocomercial.model;
 
-public class CustoAdministrativo {
-	private float custoAtual = 0;
-	
-	
-	public 
-	
+import javax.swing.JOptionPane;
 
+import gestaocomercial.dto.BancoDeDados;
+
+public class CustoAdministrativo {
+	int opcao = 0;
+	private Float custoAtual = 0f;
+	
+	
+	public void visualizarCustoAdministrativo() {
+		JOptionPane.showConfirmDialog(null, "Custo administrativo atual: " + this.custoAtual + "\n"
+				+ "" );
+	}
+	
+	public void adicionarCustoAdministrativo(Float custo) {
+		custoAtual = custoAtual + custo;
+	}
 }

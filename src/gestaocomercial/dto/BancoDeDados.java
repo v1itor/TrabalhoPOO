@@ -1,5 +1,6 @@
 package gestaocomercial.dto;
 
+import gestaocomercial.model.CustoAdministrativo;
 import gestaocomercial.model.list.CompradoresAtuais;
 import gestaocomercial.model.list.Estoque;
 import gestaocomercial.model.list.HistoricoDePedidos;
@@ -14,6 +15,11 @@ public class BancoDeDados {
 	private HistoricoDeVendas historicoDeVendas = new HistoricoDeVendas();
 	private KitsDisponiveis kitsDisponiveis = new KitsDisponiveis();
 	private ParametrizacoesDoSistema parametrizacoesDoSistema = new ParametrizacoesDoSistema();
+	private CustoAdministrativo custoAdministrativo = new CustoAdministrativo();
+
+	public CustoAdministrativo getCustoAdministrativo() {
+		return custoAdministrativo;
+	}
 
 	public CompradoresAtuais getListaDeCompradores() {
 		return listaDeCompradores;
