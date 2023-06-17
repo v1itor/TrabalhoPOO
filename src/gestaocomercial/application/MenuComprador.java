@@ -4,6 +4,9 @@ import javax.swing.JOptionPane;
 
 import gestaocomercial.dto.BancoDeDados;
 import gestaocomercial.model.Comprador;
+import gestaocomercial.model.Endereco;
+import java.util.Date;
+
 
 public class MenuComprador {
 	public static void exibirMenuCompradores(BancoDeDados bancoDeDados) {
@@ -26,23 +29,30 @@ public class MenuComprador {
 				comprador.setTelefone(JOptionPane.showInputDialog("Insira o Telefone do comprador:"));
 				comprador.setCpfCnpj(JOptionPane.showInputDialog("Insira o CPF/CNPJ do comprador:"));
 				comprador.setObs(JOptionPane.showInputDialog("Insira uma Observação sobre o comprador:"));
+				comprador.setDataCriacao(new Date());
 				
+				Endereco endereco = new Endereco();
+				endereco.setRua(JOptionPane.showInputDialog("Insira a Rua do comprador:"));
+				endereco.setCodigoPostal(JOptionPane.showInputDialog("Insira o Código Postal do comprador:"));
+				endereco.setEstado(JOptionPane.showInputDialog("Insira o Estado do comprador:"));
 				
 				bancoDeDados.getListaDeCompradores().getListaDeCompradores().add(comprador);
+				comprador.setEndereco(endereco); 
 				break;
+				
 			case 2:
-				exibirComprador();
+				JOptionPane.showMessageDialog(null, bancoDeDados.getListaDeCompradores().mostrarListaDeCompradores());
 				break;
 			case 3:
-				alterarComprador();
+				JOptionPane.showMessageDialog(null, "Função não disponivel no momento");
+				// TODO = alterarComprador();
 				break;
 			case 4:
 				MenuPrincipal.exibirMenuPrincipal();
-				JOptionPane.showMessageDialog(null, "Voltando para o menu principal...");
 				break;
 			default:
 				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente\n");
-				exibirMenuPrincipal();
+				MenuPrincipal.exibirMenuPrincipal();
 			}
 
 		} while(opcao != 4);
