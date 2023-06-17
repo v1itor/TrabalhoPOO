@@ -5,6 +5,16 @@ public class Produto {
 	Float valorAtual;
 	String tipoProduto;
 
+	public Produto() {
+
+	}
+
+	public Produto(String nome, Float valorAtual, String tipoDeProduto) {
+		this.nome = nome;
+		this.valorAtual = valorAtual;
+		this.tipoProduto = tipoDeProduto;
+	}
+
 	public String getNome() {
 		return nome;
 	}
