@@ -15,6 +15,7 @@ public class MenuPrincipal {
 					+ "3 - Acessar menu de estoque\n"
 					+ "4 - Acessar menu de compradores"
 					+ "5 - Emitir relatórios"
+					+ "6 - Cálculo de custo administrativo"
 					+ "6 - Sair"));
 			
 			switch(opcao) {
