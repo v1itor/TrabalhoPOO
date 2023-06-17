@@ -5,9 +5,16 @@ import java.util.Date;
 import gestaocomercial.model.Produto;
 
 public class ProdutoEmEstoque {
-	Produto produto;
-	Date dataDeEntrada;
-	Date dataDeSaida;
+	private Produto produto;
+	private Date dataDeEntrada;
+	private String canalDeVenda;
+	private String metodoDePagamento;
+	private Integer quantidade;
+	private Float custoBase;
+	private Float custoAdicional;
+	private String obs;
+	
+	private Date dataDeSaida;
 	
 	public ProdutoEmEstoque (Produto produto) {
 		this.produto = produto;
@@ -38,5 +45,53 @@ public class ProdutoEmEstoque {
 
 	public void setDataDeSaida(Date dataDeSaida) {
 		this.dataDeSaida = dataDeSaida;
+	}
+
+	public String getCanalDeVenda() {
+		return canalDeVenda;
+	}
+
+	public void setCanalDeVenda(String canalDeVenda) {
+		this.canalDeVenda = canalDeVenda;
+	}
+
+	public String getMetodoDePagamento() {
+		return metodoDePagamento;
+	}
+
+	public void setMetodoDePagamento(String metodoDePagamento) {
+		this.metodoDePagamento = metodoDePagamento;
+	}
+
+	public Integer getQuantidade() {
+		return quantidade;
+	}
+
+	public void setQuantidade(Integer quantidade) {
+		this.quantidade = quantidade;
+	}
+
+	public Float getCustoBase() {
+		return custoBase;
+	}
+
+	public void setCustoBase(Float custoBase) {
+		this.custoBase = custoBase;
+	}
+
+	public Float getCustoAdicional() {
+		return custoAdicional;
+	}
+
+	public void setCustoAdicional(Float custoAdicional) {
+		this.custoAdicional = custoAdicional;
+	}
+
+	public String getObs() {
+		return obs;
+	}
+
+	public void setObs(String obs) {
+		this.obs = obs;
 	}
 }

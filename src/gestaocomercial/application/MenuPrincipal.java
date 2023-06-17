@@ -3,6 +3,11 @@ package gestaocomercial.application;
 import javax.swing.JOptionPane;
 
 import gestaocomercial.dto.BancoDeDados;
+import gestaocomercial.dto.ProdutoVendido;
+import gestaocomercial.model.Comprador;
+import gestaocomercial.model.Endereco;
+import gestaocomercial.model.Pedido;
+import gestaocomercial.model.Produto;
 
 public class MenuPrincipal {
 
@@ -10,9 +15,11 @@ public class MenuPrincipal {
 
 	public static void exibirMenuPrincipal() {
 		BancoDeDados bancoDeDados = new BancoDeDados();
+
 		int opcao = 0;
 
 		do {
+<<<<<<< HEAD
 			opcao = Integer.parseInt(JOptionPane.showInputDialog(""
 					+ "----------- MENU -----------\n"
 					+ "Insira a opção que deseja realizar:\n"
@@ -23,6 +30,24 @@ public class MenuPrincipal {
 					+ "5 - Cálculo de custo administrativo"
 					+ "6 - Sair"));
 
+=======
+			try {
+				opcao = Integer.parseInt(JOptionPane.showInputDialog(""
+						+ "----------- MENU -----------\n"
+						+ "Insira a opção que deseja realizar:\n"
+						+ "1 - Acessar menu de vendas\n"
+						+ "2 - Acessar menu de compras\n"
+						+ "3 - Acessar menu de estoque\n"
+						+ "4 - Acessar menu de compradores\n"
+						+ "5 - Emitir relatórios\n"
+						+ "6 - Cálculo de custo administrativo\n"
+						+ "7 - Sair"));
+			} catch (Exception e) {
+				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente");
+				MenuPrincipal.exibirMenuPrincipal();
+				break;
+			}
+>>>>>>> 9ad6f99c9bfa8196f8b4dc41fa06f6e2b4dce3a3
 			switch(opcao) {
 			case 1:
 				MenuVendas.exibirMenuVendas(bancoDeDados);
@@ -48,5 +73,25 @@ public class MenuPrincipal {
 			}
 
 		} while(opcao != 6);
+	}
+
+	private void inicializaValores(BancoDeDados bancoDeDados) {
+		bancoDeDados.getCustoAdministrativo().adicionarCustoAdministrativo(10f);
+
+		Produto rtx4060 = new Produto("RTX4060,", 2400f, "Placa de vídeo");
+		Produto rtx3060 = new Produto("RTX3060,", 3100f, "Placa de vídeo");
+		Produto rtx2070 = new Produto("RTX2070,", 2500f, "Placa de vídeo");
+
+		bancoDeDados.getEstoque().getListaDeprodutos().add(rtx4060);
+		bancoDeDados.getEstoque().getListaDeprodutos().add(rtx3060);
+		bancoDeDados.getEstoque().getListaDeprodutos().add(new Produto("RTX2070,", 2500f, "Placa de vídeo"));
+		bancoDeDados.getEstoque().getListaDeprodutos().add(new Produto("I7-7700K,", 1200f, "Processador"));
+
+		Comprador comprador = new Comprador("Vitor", "vitor@gmail.com", new Endereco("Rua Joao Meneghetti", "Joinville", "Santa Catarina", "8925105" ), "47991999999", "12345678901", "Comprador chatao");
+		bancoDeDados.getListaDeCompradores().getListaDeCompradores().add(comprador);
+
+		bancoDeDados.getHistoricoDePedidos().addPedido(new Pedido(comprador, new ProdutoVendido(rtx4060)));
+		bancoDeDados.getHistoricoDePedidos().addPedido(new Pedido(comprador, new ProdutoVendido(rtx3060)));
+		bancoDeDados.getHistoricoDePedidos().addPedido(new Pedido(comprador, new ProdutoVendido(rtx2070)));
 	}
 }

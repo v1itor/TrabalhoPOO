@@ -5,5 +5,4 @@ public enum MetodoDePagamento {
 	Debito,
 	Credito,
 	Outros
-	
 }
