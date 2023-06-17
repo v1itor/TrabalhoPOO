@@ -12,7 +12,17 @@ public class Comprador {
 	private String Obs;
 	private Date dataCriacao;
 	private List<Pedido> historicoDePedidos;
-	
+
+	public Comprador(String nome, String email, Endereco endereco, String telefone, String cpfCnpj, String obs) {
+		super();
+		this.nome = nome;
+		this.email = email;
+		this.endereco = endereco;
+		this.telefone = telefone;
+		this.cpfCnpj = cpfCnpj;
+		Obs = obs;
+	}
+
 	public String getEmail() {
 		return email;
 	}
