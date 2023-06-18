@@ -5,12 +5,11 @@ import gestaocomercial.model.Produto;
 public class ProdutoVendido {
 	private Produto produto;
 	private Integer quantidade;
-	private Float valor;
+	private Float valor; // unitario
 
-	public ProdutoVendido(Produto produto) {
+	public ProdutoVendido(Produto produto, Float valor) {
 		this.produto = produto;
-		this.quantidade = 1;
-		this.valor = produto.getValorAtual();
+		this.valor = valor;
 	}
 
 	public Produto getProduto() {

@@ -1,5 +1,5 @@
 package gestaocomercial.application;
 
-public class MenuVendas {
+public class MenuRelatorios {
 
 }

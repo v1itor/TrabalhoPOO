@@ -1,7 +1,5 @@
 package gestaocomercial.application;
 
-import java.util.Date;
-
 import javax.swing.JOptionPane;
 
 import gestaocomercial.dto.BancoDeDados;
@@ -16,7 +14,7 @@ public class MenuComprador {
 
 			opcao = Integer.parseInt(JOptionPane.showInputDialog(""
 					+ "----------- MENU COMPRADOR -----------\n"
-					+ "Insira a opção que deseja realizar:\n"
+					+ "Insira a opções que deseja realizar:\n"
 					+ "1 - Cadastrar novo comprador\n"
 					+ "2 - Consultar um comprador\n"
 					+ "3 - Voltar\n"));
@@ -29,29 +27,29 @@ public class MenuComprador {
 				comprador.setTelefone(JOptionPane.showInputDialog("Insira o Telefone do comprador:"));
 				comprador.setCpfCnpj(JOptionPane.showInputDialog("Insira o CPF/CNPJ do comprador:"));
 				comprador.setObs(JOptionPane.showInputDialog("Insira uma Observação sobre o comprador:"));
-				comprador.setDataCriacao(new Date());
-				
-				Endereco endereco = new Endereco();
-				endereco.setRua(JOptionPane.showInputDialog("Insira a Rua do comprador:"));
-				endereco.setCodigoPostal(JOptionPane.showInputDialog("Insira o Código Postal do comprador:"));
-				endereco.setEstado(JOptionPane.showInputDialog("Insira o Estado do comprador:"));
-				
+
+				if (JOptionPane.showConfirmDialog(null, "Você deseja cadastrar o endereço do comprador?", "Comprador", JOptionPane.YES_NO_OPTION) == JOptionPane.YES_OPTION) {
+					Endereco endereco = new Endereco();
+					endereco.setRua(JOptionPane.showInputDialog("Insira a Rua do comprador:"));
+					endereco.setCodigoPostal(JOptionPane.showInputDialog("Insira o Código Postal do comprador:"));
+					endereco.setCidade(JOptionPane.showInputDialog("Insira a cidade do comprador:"));
+					endereco.setEstado(JOptionPane.showInputDialog("Insira o Estado do comprador:"));
+					comprador.setEndereco(endereco);
+				}
+
 				bancoDeDados.getListaDeCompradores().getListaDeCompradores().add(comprador);
-				comprador.setEndereco(endereco); 
 				break;
-				
+
 			case 2:
-				JOptionPane.showMessageDialog(null, bancoDeDados.getListaDeCompradores().mostrarListaDeCompradores());
+				JOptionPane.showMessageDialog(null, bancoDeDados.getListaDeCompradores().gerarListaDeCompradores());
 				break;
 			case 3:
-				MenuPrincipal.exibirMenuPrincipal();
+				MenuPrincipal.exibirMenuPrincipal(bancoDeDados);
 				break;
 			default:
 				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente\n");
-				MenuPrincipal.exibirMenuPrincipal();
+				MenuComprador.exibirMenuCompradores(bancoDeDados);
 				break;
 			}
-
-
 	}
 }

@@ -13,14 +13,15 @@ public class ProdutoEmEstoque {
 	private Float custoBase;
 	private Float custoAdicional;
 	private String obs;
-	
+
 	private Date dataDeSaida;
-	
+
 	public ProdutoEmEstoque (Produto produto) {
 		this.produto = produto;
 		this.dataDeEntrada = new Date();
+		this.quantidade = 1;
 	}
-	
+
 	public ProdutoEmEstoque() {}
 
 	public Produto getProduto() {

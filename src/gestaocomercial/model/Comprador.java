@@ -1,5 +1,6 @@
 package gestaocomercial.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -11,9 +12,10 @@ public class Comprador {
 	private String cpfCnpj;
 	private String Obs;
 	private Date dataCriacao;
-	private List<Pedido> historicoDePedidos;
+	private List<Pedido> historicoDePedidos = new ArrayList<>();
 
 	public Comprador() {
+		this.dataCriacao = new Date();
 	}
 
 	public Comprador(String nome, String email, Endereco endereco, String telefone, String cpfCnpj, String obs) {

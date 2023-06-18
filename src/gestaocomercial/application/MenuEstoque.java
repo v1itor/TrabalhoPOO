@@ -1,64 +1,49 @@
 package gestaocomercial.application;
 
-import java.util.Date;
-
 import javax.swing.JOptionPane;
 
 import gestaocomercial.dto.BancoDeDados;
 import gestaocomercial.dto.ProdutoEmEstoque;
-import gestaocomercial.model.Comprador;
-import gestaocomercial.model.Endereco;
-import gestaocomercial.model.list.Estoque;
+import gestaocomercial.model.Produto;
 
 public class MenuEstoque {
 	public static void exibirMenuEstoque(BancoDeDados bancoDeDados) {
 			int opcao = 0;
-
 			do {
 				opcao = Integer.parseInt(JOptionPane.showInputDialog(""
 						+ "----------- MENU ESTOQUE -----------\n"
 						+ "Insira a opção que deseja realizar:\n"
 						+ "1 - Visualizar produtos em estoque\n"
-						+ "2 - Consultar compra específica\n"
-						+ "3 - Cadastrar produto\n"
+						+ "2 - Cadastrar novo produto\n"
+						+ "3 - Adicionar nova unidade ao produto atual\n"
 						+ "4 - Voltar\n"));
 
 				switch(opcao) {
 				case 1:
-					
-					ProdutoEmEstoque.
-					
-					comprador.setNome(JOptionPane.showInputDialog("Insira o Nome do comprador: "));
-					comprador.setEmail(JOptionPane.showInputDialog("Insira o Email do comprador:"));
-					comprador.setTelefone(JOptionPane.showInputDialog("Insira o Telefone do comprador:"));
-					comprador.setCpfCnpj(JOptionPane.showInputDialog("Insira o CPF/CNPJ do comprador:"));
-					comprador.setObs(JOptionPane.showInputDialog("Insira uma Observação sobre o comprador:"));
-					comprador.setDataCriacao(new Date());
-					
-					Endereco endereco = new Endereco();
-					endereco.setRua(JOptionPane.showInputDialog("Insira a Rua do comprador:"));
-					endereco.setCodigoPostal(JOptionPane.showInputDialog("Insira o Código Postal do comprador:"));
-					endereco.setEstado(JOptionPane.showInputDialog("Insira o Estado do comprador:"));
-					
-					bancoDeDados.getListaDeCompradores().getListaDeCompradores().add(comprador);
-					comprador.setEndereco(endereco); 
+					JOptionPane.showMessageDialog(null, bancoDeDados.getEstoque().gerarListaDeEstoque());
 					break;
-					
 				case 2:
-					JOptionPane.showMessageDialog(null, bancoDeDados.getListaDeCompradores().mostrarListaDeCompradores());
+					try {
+						Produto produto = new Produto(JOptionPane.showInputDialog("Insira o nome do produto: "), Float.parseFloat(JOptionPane.showInputDialog("Insira o valor do produto: ")), JOptionPane.showInputDialog("Insira o tipo do produto: "));
+						bancoDeDados.getEstoque().getListaDeProdutosEmEstoque().add(new ProdutoEmEstoque(produto));
+					} catch (NumberFormatException e) {
+						JOptionPane.showMessageDialog(null, "O valor informado é inválido, retornando ao menu anterior...");
+						exibirMenuEstoque(bancoDeDados);
+					}
 					break;
 				case 3:
-					JOptionPane.showMessageDialog(null, "Função não disponivel no momento");
-					// TODO = alterarComprador();
-					break;
+					Integer indexProduto = Integer.valueOf(JOptionPane.showInputDialog(null, "Insira o produto que deseja adicionar\n" + bancoDeDados.getEstoque().gerarListaDeEstoque()));
+					Integer qtdProduto = Integer.valueOf(JOptionPane.showInputDialog(null, "Insira quantos produtos deseja adicionar:"));
+					bancoDeDados.getEstoque().getListaDeProdutosEmEstoque().get(indexProduto).setQuantidade(bancoDeDados.getEstoque().getListaDeProdutosEmEstoque().get(indexProduto).getQuantidade() + qtdProduto);
 				case 4:
-					MenuPrincipal.exibirMenuPrincipal();
+					MenuPrincipal.exibirMenuPrincipal(bancoDeDados);
 					break;
 				default:
 					JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente\n");
-					MenuPrincipal.exibirMenuPrincipal();
+					exibirMenuEstoque(bancoDeDados);
 					break;
 				}
 
-			} while(opcao != 4);
+			} while (opcao != 4);
 		}
+}

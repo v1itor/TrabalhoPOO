@@ -4,16 +4,15 @@ import gestaocomercial.model.CustoAdministrativo;
 import gestaocomercial.model.list.CompradoresAtuais;
 import gestaocomercial.model.list.Estoque;
 import gestaocomercial.model.list.HistoricoDePedidos;
-import gestaocomercial.model.list.HistoricoDeVendas;
-import gestaocomercial.model.list.KitsDisponiveis;
 import gestaocomercial.model.list.ParametrizacoesDoSistema;
 
+//classe criada para transitar dados sem precisar passar muitos parâmetros para
+// os menus, ela é o que seria equivalente a um banco de dados, com tabelas e
+// etc...
 public class BancoDeDados {
 	private CompradoresAtuais listaDeCompradores = new CompradoresAtuais();
 	private Estoque estoque = new Estoque();
 	private HistoricoDePedidos historicoDePedidos = new HistoricoDePedidos();
-	private HistoricoDeVendas historicoDeVendas = new HistoricoDeVendas();
-	private KitsDisponiveis kitsDisponiveis = new KitsDisponiveis();
 	private ParametrizacoesDoSistema parametrizacoesDoSistema = new ParametrizacoesDoSistema();
 	private CustoAdministrativo custoAdministrativo = new CustoAdministrativo();
 
@@ -31,14 +30,6 @@ public class BancoDeDados {
 
 	public HistoricoDePedidos getHistoricoDePedidos() {
 		return historicoDePedidos;
-	}
-
-	public HistoricoDeVendas getHistoricoDeVendas() {
-		return historicoDeVendas;
-	}
-
-	public KitsDisponiveis getKitsDisponiveis() {
-		return kitsDisponiveis;
 	}
 
 	public ParametrizacoesDoSistema getParametrizacoesDoSistema() {
