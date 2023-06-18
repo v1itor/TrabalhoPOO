@@ -14,7 +14,6 @@ import gestaocomercial.model.list.ParametrizacoesDoSistema;
 public class MenuPrincipal {
 
 	public static void exibirMenuPrincipal(BancoDeDados bancoDeDados) {
-		JOptionPane.getRootFrame().dispose(); // fecha todos os JOptionPane abertos
 		if (bancoDeDados.getEstoque().getListaDeProdutosEmEstoque().size() < 1) { // caso não tenha dados em "banco"...
 			inicializaValores(bancoDeDados);
 		}
@@ -30,7 +29,7 @@ public class MenuPrincipal {
 						+ "3 - Acessar menu de estoque\n"
 						+ "4 - Acessar menu de relatórios\n"
 						+ "5 - Cálculo de custo administrativo\n"
-						+ "7 - Sair"));
+						+ "6 - Sair"));
 			} catch (Exception e) {
 				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente");
 				MenuPrincipal.exibirMenuPrincipal(bancoDeDados);
@@ -52,7 +51,7 @@ public class MenuPrincipal {
 			case 5:
 				MenuCustoAdministrativo.exibirMenuCustoAdministrativo(bancoDeDados);
 				break;
-			case 7:
+			case 6:
 				return;
 			default:
 				JOptionPane.showMessageDialog(null, "Opção inválida inserida, tente novamente");

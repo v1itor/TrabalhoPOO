@@ -10,6 +10,7 @@ public class ProdutoVendido {
 	public ProdutoVendido(Produto produto, Float valor) {
 		this.produto = produto;
 		this.valor = valor;
+		this.quantidade = 1;
 	}
 
 	public Produto getProduto() {

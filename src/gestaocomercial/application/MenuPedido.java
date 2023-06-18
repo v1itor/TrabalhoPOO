@@ -18,7 +18,7 @@ public class MenuPedido {
 
 	public static void exibirMenuPedido(BancoDeDados bancoDeDados) {
 		int opcao = 0;
-		opcao = Integer.parseInt(JOptionPane.showInputDialog("" + "----------- MENU PEDIDO -----------\n" + "Insira a opção que deseja realizar:\n" + "1 - Cadastrar novo pedido\n" + "2 - Visualizar pedidos realizados\n" + "4 - Voltar\n"));
+		opcao = Integer.parseInt(JOptionPane.showInputDialog("" + "----------- MENU PEDIDO -----------\n" + "Insira a opção que deseja realizar:\n" + "1 - Cadastrar novo pedido\n" + "2 - Visualizar pedidos realizados\n" + "3 - Voltar\n"));
 
 		switch (opcao) {
 		case 1:
@@ -39,7 +39,7 @@ public class MenuPedido {
 				}
 
 				Integer qtdProduto = Integer.valueOf(JOptionPane.showInputDialog(null, "Você deseja atribuir quantos produtos à esse pedido?"));
-				while (qtdProduto > bancoDeDados.getEstoque().getListaDeProdutosEmEstoque().size()) {
+				while (qtdProduto > bancoDeDados.getEstoque().calculaTotalProdutos()) {
 					JOptionPane.showMessageDialog(null, "Infelizmente só temos " + bancoDeDados.getEstoque().getListaDeProdutosEmEstoque().size() + " produtos em estoque, tente novamente...");
 					qtdProduto = Integer.valueOf(JOptionPane.showInputDialog(null, "Você deseja atribuir quantos produtos à esse pedido?"));
 				}
@@ -57,7 +57,16 @@ public class MenuPedido {
 					lucroIdeal += valorDeVenda * porcentagemLucroIdeal;
 
 					produtoASerAdicionado.setQuantidade(produtoASerAdicionado.getQuantidade() - 1);
-					listaDeProdutos.add(new ProdutoVendido(produtoASerAdicionado.getProduto(), valorDeVenda));
+					boolean jaAdicionado = false;
+					for (ProdutoVendido produtoVendido : listaDeProdutos) {
+						if (produtoVendido.getProduto().equals(produtoASerAdicionado.getProduto())) {
+							jaAdicionado = true;
+							produtoVendido.setQuantidade(produtoVendido.getQuantidade() + 1);
+						}
+					}
+					if (!jaAdicionado) {
+						listaDeProdutos.add(new ProdutoVendido(produtoASerAdicionado.getProduto(), valorDeVenda));
+					}
 				}
 
 				CanalDeVenda canalDeVenda = (CanalDeVenda.values()[Integer.valueOf(JOptionPane.showInputDialog("Insira qual o canal da venda feita:\n" + "1 - Mercado Livre\n" + "2 - OLX\n" + "3 - MarketPlace\n" + "4 - Shopee\n" + "5 - Pessoalmente")) - 1]);
@@ -80,10 +89,6 @@ public class MenuPedido {
 			JOptionPane.showMessageDialog(null, bancoDeDados.getHistoricoDePedidos().gerarHistoricoDePedidos());
 			break;
 		case 3:
-			JOptionPane.showMessageDialog(null, "Função não disponivel no momento");
-			// TODO = alterarComprador();
-			break;
-		case 4:
 			MenuPrincipal.exibirMenuPrincipal(bancoDeDados);
 			break;
 		default:

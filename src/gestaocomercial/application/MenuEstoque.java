@@ -35,6 +35,8 @@ public class MenuEstoque {
 					Integer indexProduto = Integer.valueOf(JOptionPane.showInputDialog(null, "Insira o produto que deseja adicionar\n" + bancoDeDados.getEstoque().gerarListaDeEstoque()));
 					Integer qtdProduto = Integer.valueOf(JOptionPane.showInputDialog(null, "Insira quantos produtos deseja adicionar:"));
 					bancoDeDados.getEstoque().getListaDeProdutosEmEstoque().get(indexProduto).setQuantidade(bancoDeDados.getEstoque().getListaDeProdutosEmEstoque().get(indexProduto).getQuantidade() + qtdProduto);
+					exibirMenuEstoque(bancoDeDados);
+					break;
 				case 4:
 					MenuPrincipal.exibirMenuPrincipal(bancoDeDados);
 					break;
